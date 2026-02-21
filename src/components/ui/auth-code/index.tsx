@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useRef } from "react";
 import { useState } from "react";
 import "./styles.css";
-import { cn } from "../../../utility";
+import { cn } from "@/utility";
 
 type AuthCodeProps = {
   /**
