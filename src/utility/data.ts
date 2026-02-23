@@ -69,35 +69,63 @@ export const checkboxesData = [
 export const filesystem: FileSystemItemType[] = [
   {
     type: "folder",
-    isExpanded: false,
-    name: "user-interface-coding",
+    name: "src",
+    isExpanded: true,
     files: [
       {
         type: "folder",
-        name: "src",
-        isExpanded: false,
+        name: "components",
+        isExpanded: true,
         files: [
-          {
-            type: "folder",
-            name: "components",
-            isExpanded: false,
-            files: [
-              {
-                type: "file",
-                name: "auth-code.tsx",
-              },
-            ],
-          },
-          {
-            type: "file",
-            name: "App.tsx",
-          },
+          { type: "file", name: "Header.tsx" },
+          { type: "file", name: "Footer.tsx" },
+          { type: "file", name: "Sidebar.tsx" },
         ],
       },
+      {
+        type: "folder",
+        name: "pages",
+        isExpanded: false,
+        files: [
+          { type: "file", name: "Home.tsx" },
+          { type: "file", name: "About.tsx" },
+          { type: "file", name: "Contact.tsx" },
+        ],
+      },
+      {
+        type: "file",
+        name: "index.tsx",
+      },
+      {
+        type: "file",
+        name: "App.tsx",
+      },
+    ],
+  },
+  {
+    type: "folder",
+    name: "public",
+    isExpanded: false,
+    files: [
+      { type: "file", name: "index.html" },
+      { type: "file", name: "favicon.ico" },
+    ],
+  },
+  {
+    type: "folder",
+    name: "config",
+    isExpanded: false,
+    files: [
+      { type: "file", name: "tsconfig.json" },
+      { type: "file", name: "webpack.config.js" },
     ],
   },
   {
     type: "file",
     name: "package.json",
+  },
+  {
+    type: "file",
+    name: "README.md",
   },
 ];
