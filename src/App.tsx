@@ -1,10 +1,11 @@
-import { NestedCheckbox } from "./components/ui/checkboxes";
-import { checkboxesData } from "./utility/data";
+import { Filesystem } from "./components/ui/file-system";
+import { filesystem } from "./utility/data";
 
 function App() {
   return (
     <main className="playground">
-      <NestedCheckbox data={checkboxesData} />
+      {/*<NestedCheckbox data={checkboxesData} />*/}
+      <Filesystem data={filesystem} />
     </main>
   );
 }

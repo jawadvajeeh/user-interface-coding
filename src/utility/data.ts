@@ -1,3 +1,5 @@
+import type { FileSystemItemType } from "@/types";
+
 export const checkboxesData = [
   {
     id: 1,
@@ -61,5 +63,41 @@ export const checkboxesData = [
     id: 11,
     name: "Toys",
     checked: false,
+  },
+];
+
+export const filesystem: FileSystemItemType[] = [
+  {
+    type: "folder",
+    isExpanded: false,
+    name: "user-interface-coding",
+    files: [
+      {
+        type: "folder",
+        name: "src",
+        isExpanded: false,
+        files: [
+          {
+            type: "folder",
+            name: "components",
+            isExpanded: false,
+            files: [
+              {
+                type: "file",
+                name: "auth-code.tsx",
+              },
+            ],
+          },
+          {
+            type: "file",
+            name: "App.tsx",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    type: "file",
+    name: "package.json",
   },
 ];
