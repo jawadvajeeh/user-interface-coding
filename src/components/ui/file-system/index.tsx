@@ -106,7 +106,10 @@ const FilesystemList = ({
   );
 };
 
-type FileNodeBaseProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+type FileNodeBaseProps = Pick<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  "onClick"
+> & {
   nodeName: string;
   rename: (nodeName: string) => void;
 };
@@ -122,6 +125,8 @@ type FileNodeProps =
 
 function FileNode(props: FileNodeProps) {
   const { nodeType, nodeName, rename, ...buttonProps } = props;
+  const isExpanded = nodeType === "folder" ? props.isExpanded : undefined;
+
   const [isEdit, setIsEdit] = useState(false);
   const [fileNameValue, setFileNameValue] = useState(nodeName);
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -134,7 +139,7 @@ function FileNode(props: FileNodeProps) {
   return (
     <div className="file">
       {nodeType === "folder" ? (
-        props.isExpanded ? (
+        isExpanded ? (
           <FolderOpen size={16} style={{ flexShrink: 0 }} />
         ) : (
           <FolderClosed size={16} style={{ flexShrink: 0 }} />

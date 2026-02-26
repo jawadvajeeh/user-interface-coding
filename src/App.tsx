@@ -1,12 +1,9 @@
-import { Filesystem } from "./components/ui/file-system";
-import { filesystem } from "./utility/data";
+import { TransfersListItem } from "./components/ui/transfers-list-one";
 
 function App() {
   return (
     <main className="playground">
-      {/*<NestedCheckbox data={checkboxesData} />*/}
-
-      <Filesystem data={filesystem} />
+      <TransfersListItem />
     </main>
   );
 }

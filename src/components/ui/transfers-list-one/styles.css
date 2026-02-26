@@ -1,0 +1,17 @@
+.transfers-list {
+    display: flex;
+    width: 400px;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    border: 1px solid black;
+    padding: 16px;
+}
+
+ul {
+    list-style: none;
+}
+
+.transfers-actions {
+    display: flex;
+    flex-direction: column;
+}
