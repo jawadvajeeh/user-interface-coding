@@ -1,9 +1,9 @@
-import { TransfersListItem } from "./components/ui/transfers-list-one";
+import { TransfersListTwo } from "./components/ui/transfers-list-two";
 
 function App() {
   return (
     <main className="playground">
-      <TransfersListItem />
+      <TransfersListTwo />
     </main>
   );
 }
