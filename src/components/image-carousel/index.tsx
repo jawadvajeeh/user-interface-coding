@@ -1,5 +1,7 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useImageCarousel } from "./hook";
+import { useRef } from "react";
+import { useEffect } from "react";
 
 type Image = {
   src: string;
@@ -18,23 +20,32 @@ function ImageCarousel({
   autoNext = false,
 }: ImageCarouselProps) {
   if (!images || images.length === 0) return null;
+  const slideRef = useRef<HTMLDivElement>(null);
   const {
     currIndex: slideIndex,
     nextSlide,
     prevSlide,
     showSlide,
-  } = useImageCarousel({ numberOfSlides: images.length, autoNext });
+  } = useImageCarousel({
+    numberOfSlides: images.length,
+    autoNext,
+    scrollRef: slideRef,
+  });
   return (
     <div style={{ maxWidth: width }} className=" relative w-full">
       {/*slide*/}
-      <div className="aspect-video bg-red-100 flex overflow-hidden">
+      <div
+        ref={slideRef}
+        className="aspect-video flex overflow-x-auto snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+      >
         {images.map((image, idx) => (
           <img
-            style={{ translate: `${-100 * slideIndex}%` }}
+            // style={{ translate: `${-100 * slideIndex}%` }}
             key={idx}
             alt={image.alt}
             src={image.src}
-            loading="lazy"
+            fetchPriority={idx === 0 ? "high" : "auto"}
+            loading={idx === 0 ? `eager` : "lazy"}
             className=" w-full h-full shrink-0  object-cover transition-transform duration-300"
           />
         ))}
